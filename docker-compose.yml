@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  islands:
+    image: islands
+    build:
+      context: .
+      dockerfile: ./Dockerfile
