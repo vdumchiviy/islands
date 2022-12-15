@@ -1,5 +1,7 @@
 import pytest
-from utils import get_zero_row, get_line_length, read_file, recode_string
+
+from utils.util import get_line_length, get_zero_row, read_file, recode_string
+
 
 def test_get_zero_row():
     actual = get_zero_row(5)
@@ -9,11 +11,13 @@ def test_get_zero_row():
         get_zero_row(0)
         assert str(e) == "[get_zero_row]: length shoud be more then 0."
 
+
 def test_get_line_length():
     assert get_line_length("src/samples/island01.txt") == 9
 
     with pytest.raises(FileNotFoundError):
         get_line_length("fooboo")
+
 
 def test_read_file():
     expected = 8
