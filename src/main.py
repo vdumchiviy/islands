@@ -1,12 +1,20 @@
 """ Main module """
-from typing import List
+import sys
+from typing import List, Optional
 
 from utils.util import get_line_length, get_zero_row, read_file
 from utils.algo import is_start_island, it_belongs_to_island, fill_back
        
+def get_file_name_from_command_line() -> Optional[str]:
+    args = sys.argv
+    result = None
+    if len(args) == 1:
+        print('Please provide any island file')
+    else:
+        result = args[1]
+    return result
 
-def main():
-    file_name = "src/samples/island03.txt"
+def main(file_name: str):
     length = get_line_length(file_name)
     prev_line = get_zero_row(length)
     islands = 2
@@ -31,5 +39,6 @@ def main():
 
     print(islands - 2)
 
-
-main()
+file_name = get_file_name_from_command_line()
+if file_name:
+    main(file_name)
