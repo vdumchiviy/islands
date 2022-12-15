@@ -1,2 +1,5 @@
 -r requirements.txt
 pytest
+isort
+flake8
+mypy
